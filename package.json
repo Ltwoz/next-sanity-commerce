@@ -10,9 +10,20 @@
     "format": "prettier --write ."
   },
   "dependencies": {
+    "@radix-ui/react-slot": "^1.0.2",
+    "@sanity/image-url": "^1.0.2",
+    "@stripe/stripe-js": "^2.1.11",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.0.0",
+    "lucide-react": "^0.292.0",
     "next": "14.0.1",
+    "next-sanity": "^5.5.10",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "stripe": "^14.3.0",
+    "tailwind-merge": "^2.0.0",
+    "tailwindcss-animate": "^1.0.7",
+    "use-shopping-cart": "^3.1.8"
   },
   "devDependencies": {
     "@ltwoz/prettier-config": "^1.1.1",
