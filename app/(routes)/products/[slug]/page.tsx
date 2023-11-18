@@ -1,9 +1,12 @@
-import { fullProduct } from "@/app/interface";
-import { Button } from "@/components/ui/button";
-import { client } from "@/lib/sanity";
 import { Star, Truck } from "lucide-react";
+
+import { Button } from "@/components/ui/button";
+import { fullProduct } from "@/app/interface";
+import { client } from "@/lib/sanity";
+
 import ImageGallery from "./_components/image-gallery";
 import AddToBag from "./_components/add-to-bag";
+import CheckoutNow from "./_components/checkout-now";
 
 async function getData(slug: string): Promise<fullProduct> {
   const query = `*[_type == "product" && slug.current == "${slug}"][0] {
@@ -75,24 +78,22 @@ const ProductBySlugPage = async ({ params }: { params: { slug: string } }) => {
             </div>
 
             <div className="flex gap-2.5">
-              {/* <AddToBag
+              <AddToBag
                 currency="USD"
                 description={data.description}
                 image={data.images[0]}
                 name={data.name}
                 price={data.price}
-                key={data._id}
                 price_id={data.price_id}
-              /> */}
-              {/* <CheckoutNow
+              />
+              <CheckoutNow
                 currency="USD"
                 description={data.description}
                 image={data.images[0]}
                 name={data.name}
                 price={data.price}
-                key={data._id}
                 price_id={data.price_id}
-              /> */}
+              />
             </div>
 
             <p className="mt-12 text-base text-gray-500 tracking-wide">

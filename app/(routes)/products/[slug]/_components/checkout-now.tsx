@@ -5,16 +5,9 @@ import { useShoppingCart } from "use-shopping-cart";
 import { Button } from "@/components/ui/button";
 import { urlFor } from "@/lib/sanity";
 
-export interface ProductCart {
-  name: string;
-  description: string;
-  price: number;
-  currency: string;
-  image: any;
-  price_id: string;
-}
+import { ProductCart } from "./add-to-bag";
 
-export default function AddToBag({
+export default function CheckoutNow({
   currency,
   description,
   image,
@@ -22,7 +15,11 @@ export default function AddToBag({
   price,
   price_id,
 }: ProductCart) {
-  const { addItem, handleCartClick } = useShoppingCart();
+  const { checkoutSingleItem } = useShoppingCart();
+
+  function buyNow(priceId: string) {
+    checkoutSingleItem(priceId);
+  }  
 
   const product = {
     name: name,
@@ -35,11 +32,12 @@ export default function AddToBag({
 
   return (
     <Button
+      variant="outline"
       onClick={() => {
-        addItem(product), handleCartClick();
+        buyNow(product.price_id);
       }}
     >
-      Add To Card
+      Checkout Now
     </Button>
   );
 }
